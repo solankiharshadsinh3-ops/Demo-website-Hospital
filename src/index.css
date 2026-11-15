@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal-deep: #183E43;
+  --color-teal-secondary: #24565A;
+  --color-champagne: #D2B47A;
+  --color-ivory: #F8F7F3;
+  --color-charcoal: #252A2B;
+  --color-soft-gray: #E9ECEB;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Manrope", "Noto Sans Gujarati", "Noto Sans Devanagari", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-serif);
+    text-wrap: balance;
+  }
+}
+
+@keyframes continuousFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+@keyframes continuousFloatDeep {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+.animate-float-hero {
+  animation: continuousFloat 4.2s ease-in-out 0s infinite;
+  will-change: transform;
+}
+
+.animate-float-overlay {
+  animation: continuousFloatDeep 3.8s ease-in-out 0.75s infinite;
+  will-change: transform;
+}
+
+.animate-float-accent {
+  animation: continuousFloat 4.6s ease-in-out 1.35s infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-float-hero,
+  .animate-float-overlay,
+  .animate-float-accent {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto;
+  }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

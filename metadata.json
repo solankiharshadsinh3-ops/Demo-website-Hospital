@@ -1,0 +1,6 @@
+{
+  "name": "Lumière Dental Studio",
+  "description": "Beautiful Smiles. Exceptional Care. Luxury dental studio showcase website featuring multilingual support (English, Gujarati, Hindi), curated dental treatments, doctor profiles, smile gallery, and interactive appointment requests (fictional demonstration).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
