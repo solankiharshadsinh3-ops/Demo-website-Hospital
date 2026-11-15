@@ -10,7 +10,7 @@ const PILLAR_ICONS = [Cpu, Sliders, Sparkles, HeartHandshake, ShieldCheck, FileT
 
 export function WhyChooseUsSection({ content }: WhyChooseUsSectionProps) {
   return (
-    <section className="bg-[#183E43] py-16 text-white lg:py-24">
+    <section className="bg-[#183E43] dark:bg-[#132E32] py-16 text-white transition-colors duration-300 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold tracking-wider text-[#D2B47A]">
@@ -19,7 +19,7 @@ export function WhyChooseUsSection({ content }: WhyChooseUsSectionProps) {
           <h2 className="mt-2 font-display text-3xl font-semibold text-white sm:text-4xl">
             {content.whyChooseUs.headline}
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-white/80">
+          <p className="mt-3 text-base leading-relaxed text-white/80 dark:text-[#D2DFE0]">
             {content.whyChooseUs.subtitle}
           </p>
         </div>
@@ -34,10 +34,10 @@ export function WhyChooseUsSection({ content }: WhyChooseUsSectionProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.4, delay: idx * 0.04 }}
-                className="group rounded-2xl border border-white/12 bg-[#24565A]/55 p-6 transition-all duration-200 hover:border-[#D2B47A]/60 hover:bg-[#24565A]"
+                className="group rounded-2xl border border-white/12 dark:border-[#244B52] bg-[#24565A]/55 dark:bg-[#193B40]/75 p-6 transition-all duration-200 hover:border-[#D2B47A]/60 hover:bg-[#24565A] dark:hover:bg-[#1E474D]"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-[#D2B47A]/35 bg-[#183E43] text-[#D2B47A]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-[#D2B47A]/35 bg-[#183E43] dark:bg-[#0E2327] text-[#D2B47A]">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <span className="font-serif text-lg font-medium tabular-nums text-[#D2B47A]/80">
@@ -48,7 +48,7 @@ export function WhyChooseUsSection({ content }: WhyChooseUsSectionProps) {
                 <h3 className="mt-5 font-serif text-xl font-semibold text-white">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/80">
+                <p className="mt-2 text-sm leading-relaxed text-white/80 dark:text-[#D2DFE0]">
                   {item.description}
                 </p>
               </motion.div>

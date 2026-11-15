@@ -3,6 +3,7 @@ import { Calendar, CheckCircle2, Clock, MessageCircle, Send } from 'lucide-react
 import { motion } from 'motion/react';
 import { SiteContent } from '../data/translations';
 import { AppointmentFormData } from '../types';
+import { Magnetic } from './Magnetic';
 
 interface AppointmentSectionProps {
   content: SiteContent;
@@ -101,98 +102,100 @@ export function AppointmentSection({
   )}`;
 
   const inputBaseClass =
-    'w-full rounded-lg border border-[#E9ECEB] bg-[#F8F7F3]/50 px-4 py-3 text-sm text-[#252A2B] placeholder:text-[#252A2B]/45 transition-colors focus:border-[#183E43] focus:bg-white focus:outline-none';
+    'w-full rounded-lg border border-[#E9ECEB] dark:border-[#244B52] bg-[#F8F7F3]/50 dark:bg-[#0E2327] px-4 py-3 text-sm text-[#252A2B] dark:text-[#F8F7F3] placeholder:text-[#252A2B]/45 dark:placeholder:text-[#8BA6A9] transition-colors focus:border-[#183E43] dark:focus:border-[#D2B47A] focus:bg-white dark:focus:bg-[#132E32] focus:outline-none';
 
   return (
-    <section id="appointment" className="bg-white py-16 lg:py-24">
+    <section id="appointment" className="bg-white dark:bg-[#11292D] py-16 transition-colors duration-300 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Left Studio Booking Guidance & WhatsApp Card */}
           <div className="flex flex-col justify-between lg:col-span-5">
             <div>
-              <p className="text-xs font-semibold tracking-wider text-[#24565A]">
+              <p className="text-xs font-semibold tracking-wider text-[#24565A] dark:text-[#D2B47A]">
                 {content.appointment.eyebrow}
               </p>
-              <h2 className="mt-2 font-display text-3xl font-semibold text-[#183E43] sm:text-4xl">
+              <h2 className="mt-2 font-display text-3xl font-semibold text-[#183E43] dark:text-white sm:text-4xl">
                 {content.appointment.headline}
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-[#252A2B]/78">
+              <p className="mt-3 text-base leading-relaxed text-[#252A2B]/78 dark:text-[#D2DFE0]">
                 {content.appointment.subtitle}
               </p>
 
-              <p className="mt-5 rounded-xl border border-[#E9ECEB] bg-[#F8F7F3] p-4 text-xs leading-relaxed text-[#252A2B]/75">
+              <p className="mt-5 rounded-xl border border-[#E9ECEB] dark:border-[#244B52] bg-[#F8F7F3] dark:bg-[#16363B] p-4 text-xs leading-relaxed text-[#252A2B]/75 dark:text-[#C4D4D6]">
                 {content.appointment.demoNotice}
               </p>
             </div>
 
-            <div className="mt-8 rounded-2xl border border-[#183E43]/15 bg-[#183E43] p-6 text-white sm:p-8">
+            <div className="mt-8 rounded-2xl border border-[#183E43]/15 dark:border-[#D2B47A]/25 bg-[#183E43] dark:bg-[#0C1E21] p-6 text-white sm:p-8">
               <p className="text-xs font-semibold tracking-wide text-[#D2B47A]">
                 WhatsApp Concierge · Demo
               </p>
               <h3 className="mt-2 font-serif text-2xl font-semibold text-white">
                 {content.appointment.whatsappTitle}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/80">
+              <p className="mt-2 text-sm leading-relaxed text-white/80 dark:text-[#D2DFE0]">
                 {content.appointment.whatsappSubtitle}
               </p>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex min-h-[46px] w-full items-center justify-center gap-2.5 rounded-md bg-[#D2B47A] px-5 py-3 text-sm font-semibold text-[#183E43] transition-all duration-200 hover:bg-[#dec38e] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                <span>{content.appointment.whatsappButton}</span>
-              </a>
+              <Magnetic fullWidth className="mt-6">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group btn-luxury inline-flex min-h-[46px] w-full items-center justify-center gap-2.5 rounded-md border border-[#D2B47A] bg-gradient-to-r from-[#D2B47A] to-[#DFC48E] px-5 py-3 text-sm font-semibold text-[#183E43] shadow-[0_8px_20px_-4px_rgba(210,180,122,0.35)] hover:from-[#24565A] hover:to-[#183E43] hover:text-white hover:shadow-[0_14px_28px_-4px_rgba(210,180,122,0.52)] active:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  <MessageCircle className="h-4 w-4 transition-colors duration-200 group-hover:text-[#D2B47A]" aria-hidden="true" />
+                  <span>{content.appointment.whatsappButton}</span>
+                </a>
+              </Magnetic>
             </div>
           </div>
 
           {/* Right Form Container */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-[#E9ECEB] bg-white p-6 shadow-sm sm:p-8">
+            <div className="rounded-2xl border border-[#E9ECEB] dark:border-[#244B52] bg-white dark:bg-[#153136] p-6 shadow-sm transition-colors duration-300 sm:p-8">
               {submittedRecord ? (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="py-6 text-center sm:px-6"
                 >
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#183E43] text-[#D2B47A]">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#183E43] dark:bg-[#D2B47A] text-[#D2B47A] dark:text-[#183E43]">
                     <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
                   </div>
-                  <h3 className="mt-5 font-serif text-2xl font-semibold text-[#183E43]">
+                  <h3 className="mt-5 font-serif text-2xl font-semibold text-[#183E43] dark:text-white">
                     {content.appointment.form.successTitle}
                   </h3>
-                  <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-[#252A2B]/80">
+                  <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-[#252A2B]/80 dark:text-[#D2DFE0]">
                     {content.appointment.form.successMessage}
                   </p>
 
-                  <div className="mt-6 rounded-xl border border-[#E9ECEB] bg-[#F8F7F3] p-5 text-left text-sm">
+                  <div className="mt-6 rounded-xl border border-[#E9ECEB] dark:border-[#244B52] bg-[#F8F7F3] dark:bg-[#16363B] p-5 text-left text-sm">
                     <div className="grid gap-3 sm:grid-cols-2">
                       <div>
-                        <span className="text-xs text-[#252A2B]/60">
+                        <span className="text-xs text-[#252A2B]/60 dark:text-[#B5C7C9]">
                           {content.appointment.form.nameLabel}
                         </span>
-                        <p className="font-semibold text-[#183E43]">{submittedRecord.name}</p>
+                        <p className="font-semibold text-[#183E43] dark:text-[#F8F7F3]">{submittedRecord.name}</p>
                       </div>
                       <div>
-                        <span className="text-xs text-[#252A2B]/60">
+                        <span className="text-xs text-[#252A2B]/60 dark:text-[#B5C7C9]">
                           {content.appointment.form.treatmentLabel}
                         </span>
-                        <p className="font-semibold text-[#183E43]">{submittedRecord.treatment}</p>
+                        <p className="font-semibold text-[#183E43] dark:text-[#F8F7F3]">{submittedRecord.treatment}</p>
                       </div>
                       <div>
-                        <span className="text-xs text-[#252A2B]/60">
+                        <span className="text-xs text-[#252A2B]/60 dark:text-[#B5C7C9]">
                           {content.appointment.form.dateLabel}
                         </span>
-                        <p className="font-semibold tabular-nums text-[#183E43]">
+                        <p className="font-semibold tabular-nums text-[#183E43] dark:text-[#F8F7F3]">
                           {submittedRecord.preferredDate}
                         </p>
                       </div>
                       <div>
-                        <span className="text-xs text-[#252A2B]/60">
+                        <span className="text-xs text-[#252A2B]/60 dark:text-[#B5C7C9]">
                           {content.appointment.form.timeLabel}
                         </span>
-                        <p className="font-semibold tabular-nums text-[#183E43]">
+                        <p className="font-semibold tabular-nums text-[#183E43] dark:text-[#F8F7F3]">
                           {submittedRecord.preferredTime}
                         </p>
                       </div>
@@ -202,9 +205,9 @@ export function AppointmentSection({
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="mt-6 inline-flex min-h-[44px] items-center justify-center rounded-md border border-[#183E43] px-5 py-2.5 text-sm font-semibold text-[#183E43] transition-colors hover:bg-[#183E43] hover:text-white"
+                    className="btn-luxury mt-6 inline-flex min-h-[44px] items-center justify-center rounded-md border border-[#183E43] dark:border-[#D2B47A] bg-white dark:bg-transparent px-5 py-2.5 text-sm font-semibold text-[#183E43] dark:text-[#D2B47A] hover:border-[#D2B47A] hover:bg-[#183E43] dark:hover:bg-[#D2B47A] hover:text-white dark:hover:text-[#183E43] hover:shadow-[0_10px_24px_-6px_rgba(24,62,67,0.3)] dark:hover:shadow-[0_10px_24px_-6px_rgba(210,180,122,0.45)]"
                   >
-                    {content.appointment.form.resetButton}
+                    <span>{content.appointment.form.resetButton}</span>
                   </button>
                 </motion.div>
               ) : (
@@ -213,7 +216,7 @@ export function AppointmentSection({
                     <div>
                       <label
                         htmlFor="appt-name"
-                        className="mb-1.5 block text-xs font-semibold text-[#183E43]"
+                        className="mb-1.5 block text-xs font-semibold text-[#183E43] dark:text-[#F8F7F3]"
                       >
                         {content.appointment.form.nameLabel} *
                       </label>
@@ -226,7 +229,7 @@ export function AppointmentSection({
                         className={inputBaseClass}
                       />
                       {errors.name && (
-                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700">
+                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700 dark:text-red-300">
                           {errors.name}
                         </p>
                       )}
@@ -235,7 +238,7 @@ export function AppointmentSection({
                     <div>
                       <label
                         htmlFor="appt-phone"
-                        className="mb-1.5 block text-xs font-semibold text-[#183E43]"
+                        className="mb-1.5 block text-xs font-semibold text-[#183E43] dark:text-[#F8F7F3]"
                       >
                         {content.appointment.form.phoneLabel} *
                       </label>
@@ -248,7 +251,7 @@ export function AppointmentSection({
                         className={inputBaseClass}
                       />
                       {errors.phone && (
-                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700">
+                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700 dark:text-red-300">
                           {errors.phone}
                         </p>
                       )}
@@ -259,7 +262,7 @@ export function AppointmentSection({
                     <div>
                       <label
                         htmlFor="appt-email"
-                        className="mb-1.5 block text-xs font-semibold text-[#183E43]"
+                        className="mb-1.5 block text-xs font-semibold text-[#183E43] dark:text-[#F8F7F3]"
                       >
                         {content.appointment.form.emailLabel} *
                       </label>
@@ -272,7 +275,7 @@ export function AppointmentSection({
                         className={inputBaseClass}
                       />
                       {errors.email && (
-                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700">
+                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700 dark:text-red-300">
                           {errors.email}
                         </p>
                       )}
@@ -281,7 +284,7 @@ export function AppointmentSection({
                     <div>
                       <label
                         htmlFor="appt-treatment"
-                        className="mb-1.5 block text-xs font-semibold text-[#183E43]"
+                        className="mb-1.5 block text-xs font-semibold text-[#183E43] dark:text-[#F8F7F3]"
                       >
                         {content.appointment.form.treatmentLabel} *
                       </label>
@@ -299,7 +302,7 @@ export function AppointmentSection({
                         ))}
                       </select>
                       {errors.treatment && (
-                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700">
+                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700 dark:text-red-300">
                           {errors.treatment}
                         </p>
                       )}
@@ -310,7 +313,7 @@ export function AppointmentSection({
                     <div>
                       <label
                         htmlFor="appt-date"
-                        className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold text-[#183E43]"
+                        className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold text-[#183E43] dark:text-[#F8F7F3]"
                       >
                         <Calendar className="h-3.5 w-3.5 text-[#D2B47A]" aria-hidden="true" />
                         <span>{content.appointment.form.dateLabel} *</span>
@@ -323,10 +326,10 @@ export function AppointmentSection({
                         onChange={(e) =>
                           setFormData({ ...formData, preferredDate: e.target.value })
                         }
-                        className={`${inputBaseClass} tabular-nums`}
+                        className={`${inputBaseClass} tabular-nums dark:[color-scheme:dark]`}
                       />
                       {errors.preferredDate && (
-                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700">
+                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700 dark:text-red-300">
                           {errors.preferredDate}
                         </p>
                       )}
@@ -335,7 +338,7 @@ export function AppointmentSection({
                     <div>
                       <label
                         htmlFor="appt-time"
-                        className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold text-[#183E43]"
+                        className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold text-[#183E43] dark:text-[#F8F7F3]"
                       >
                         <Clock className="h-3.5 w-3.5 text-[#D2B47A]" aria-hidden="true" />
                         <span>{content.appointment.form.timeLabel} *</span>
@@ -356,7 +359,7 @@ export function AppointmentSection({
                         ))}
                       </select>
                       {errors.preferredTime && (
-                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700">
+                        <p role="alert" className="mt-1.5 text-xs font-medium text-red-700 dark:text-red-300">
                           {errors.preferredTime}
                         </p>
                       )}
@@ -366,7 +369,7 @@ export function AppointmentSection({
                   <div>
                     <label
                       htmlFor="appt-message"
-                      className="mb-1.5 block text-xs font-semibold text-[#183E43]"
+                      className="mb-1.5 block text-xs font-semibold text-[#183E43] dark:text-[#F8F7F3]"
                     >
                       {content.appointment.form.messageLabel}
                     </label>
@@ -380,13 +383,15 @@ export function AppointmentSection({
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-md bg-[#183E43] px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#24565A] hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D2B47A]"
-                  >
-                    <Send className="h-4 w-4 text-[#D2B47A]" aria-hidden="true" />
-                    <span>{content.appointment.form.submitButton}</span>
-                  </button>
+                  <Magnetic fullWidth>
+                    <button
+                      type="submit"
+                      className="group btn-luxury inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-md border border-[#183E43] dark:border-[#D2B47A] bg-gradient-to-r from-[#183E43] to-[#24565A] dark:from-[#D2B47A] dark:to-[#DFC48E] px-6 py-3 text-sm font-semibold text-white dark:text-[#183E43] shadow-[0_10px_24px_-6px_rgba(24,62,67,0.35)] hover:border-[#D2B47A] hover:from-[#D2B47A] hover:to-[#E2C994] dark:hover:from-[#24565A] dark:hover:to-[#183E43] hover:text-[#183E43] dark:hover:text-white hover:shadow-[0_14px_30px_-6px_rgba(210,180,122,0.52)] dark:hover:shadow-[0_14px_30px_-6px_rgba(210,180,122,0.42)] active:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D2B47A]"
+                    >
+                      <Send className="h-4 w-4 text-[#D2B47A] dark:text-[#183E43] transition-colors duration-200 group-hover:text-[#183E43] dark:group-hover:text-[#D2B47A]" aria-hidden="true" />
+                      <span>{content.appointment.form.submitButton}</span>
+                    </button>
+                  </Magnetic>
                 </form>
               )}
             </div>

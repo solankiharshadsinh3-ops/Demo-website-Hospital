@@ -21,8 +21,21 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('lumiere-theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-[#F8F7F3] text-[#252A2B] antialiased selection:bg-[#183E43] selection:text-[#F8F7F3]">
+  <body class="bg-[#F8F7F3] text-[#252A2B] dark:bg-[#0C1E21] dark:text-[#E3EAEB] antialiased transition-colors duration-300 selection:bg-[#183E43] selection:text-[#F8F7F3] dark:selection:bg-[#D2B47A] dark:selection:text-[#183E43]">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

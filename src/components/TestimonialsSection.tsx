@@ -20,20 +20,20 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
   };
 
   return (
-    <section id="reviews" className="bg-[#F8F7F3] py-16 lg:py-24">
+    <section id="reviews" className="bg-[#F8F7F3] dark:bg-[#0C1E21] py-16 transition-colors duration-300 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-wider text-[#24565A]">
+            <p className="text-xs font-semibold tracking-wider text-[#24565A] dark:text-[#D2B47A]">
               {content.testimonials.eyebrow}
             </p>
-            <h2 className="mt-2 font-display text-3xl font-semibold text-[#183E43] sm:text-4xl">
+            <h2 className="mt-2 font-display text-3xl font-semibold text-[#183E43] dark:text-white sm:text-4xl">
               {content.testimonials.headline}
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-[#252A2B]/78">
+            <p className="mt-3 text-base leading-relaxed text-[#252A2B]/78 dark:text-[#D2DFE0]">
               {content.testimonials.subtitle}
             </p>
-            <p className="mt-2 text-xs font-medium text-[#24565A]">
+            <p className="mt-2 text-xs font-medium text-[#24565A] dark:text-[#C8DCDE]">
               {content.testimonials.demoNotice}
             </p>
           </div>
@@ -43,7 +43,7 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
               type="button"
               onClick={handlePrev}
               aria-label={content.testimonials.prevLabel}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E9ECEB] bg-white text-[#183E43] transition-colors hover:border-[#D2B47A] hover:bg-[#183E43] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#183E43]"
+              className="btn-tactile inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E9ECEB] dark:border-[#244B52] bg-white dark:bg-[#153136] text-[#183E43] dark:text-[#F8F7F3] shadow-sm hover:border-[#D2B47A] dark:hover:border-[#D2B47A] hover:bg-[#183E43] dark:hover:bg-[#D2B47A] hover:text-[#D2B47A] dark:hover:text-[#183E43] hover:shadow-[0_8px_20px_-4px_rgba(24,62,67,0.3)] dark:hover:shadow-[0_8px_20px_-4px_rgba(210,180,122,0.45)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#183E43] dark:focus-visible:outline-[#D2B47A]"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -51,7 +51,7 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
               type="button"
               onClick={handleNext}
               aria-label={content.testimonials.nextLabel}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E9ECEB] bg-white text-[#183E43] transition-colors hover:border-[#D2B47A] hover:bg-[#183E43] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#183E43]"
+              className="btn-tactile inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E9ECEB] dark:border-[#244B52] bg-white dark:bg-[#153136] text-[#183E43] dark:text-[#F8F7F3] shadow-sm hover:border-[#D2B47A] dark:hover:border-[#D2B47A] hover:bg-[#183E43] dark:hover:bg-[#D2B47A] hover:text-[#D2B47A] dark:hover:text-[#183E43] hover:shadow-[0_8px_20px_-4px_rgba(24,62,67,0.3)] dark:hover:shadow-[0_8px_20px_-4px_rgba(210,180,122,0.45)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#183E43] dark:focus-visible:outline-[#D2B47A]"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -59,7 +59,7 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
         </div>
 
         {/* Featured Active Testimonial Spotlight */}
-        <div className="mt-8 rounded-2xl border border-[#E9ECEB] bg-white p-6 sm:p-10">
+        <div className="mt-8 rounded-2xl border border-[#E9ECEB] dark:border-[#244B52] bg-white dark:bg-[#153136] p-6 transition-colors duration-300 sm:p-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={items[activeIndex].id}
@@ -71,20 +71,20 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
             >
               <div className="lg:col-span-8">
                 <Quote className="h-8 w-8 text-[#D2B47A]" aria-hidden="true" />
-                <blockquote className="mt-4 font-serif text-xl leading-relaxed text-[#183E43] sm:text-2xl">
+                <blockquote className="mt-4 font-serif text-xl leading-relaxed text-[#183E43] dark:text-white sm:text-2xl">
                   “{items[activeIndex].quote}”
                 </blockquote>
               </div>
-              <div className="flex flex-col justify-center border-t border-[#E9ECEB] pt-5 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+              <div className="flex flex-col justify-center border-t border-[#E9ECEB] dark:border-[#244B52] pt-5 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
                 <div className="flex items-center gap-1 text-[#D2B47A]" aria-label="5 out of 5 illustrative stars">
                   {Array.from({ length: items[activeIndex].rating }).map((_, idx) => (
                     <Star key={idx} className="h-4 w-4 fill-current" aria-hidden="true" />
                   ))}
                 </div>
-                <p className="mt-3 font-serif text-lg font-semibold text-[#183E43]">
+                <p className="mt-3 font-serif text-lg font-semibold text-[#183E43] dark:text-[#F8F7F3]">
                   {items[activeIndex].patientName}
                 </p>
-                <p className="mt-1 text-xs text-[#252A2B]/65">{items[activeIndex].visitType}</p>
+                <p className="mt-1 text-xs text-[#252A2B]/65 dark:text-[#B5C7C9]">{items[activeIndex].visitType}</p>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -99,22 +99,22 @@ export function TestimonialsSection({ content }: TestimonialsSectionProps) {
                 key={item.id}
                 type="button"
                 onClick={() => setActiveIndex(idx)}
-                className={`rounded-xl border p-5 text-left transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#183E43] ${
+                className={`btn-tactile rounded-xl border p-5 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#183E43] dark:focus-visible:outline-[#D2B47A] ${
                   isSelected
-                    ? 'border-[#D2B47A] bg-white shadow-sm'
-                    : 'border-[#E9ECEB] bg-white/70 hover:border-[#D2B47A]/60 hover:bg-white'
+                    ? 'border-[#D2B47A] bg-white dark:bg-[#153136] shadow-[0_10px_24px_-8px_rgba(24,62,67,0.16)] dark:shadow-[0_10px_24px_-8px_rgba(210,180,122,0.2)]'
+                    : 'border-[#E9ECEB] dark:border-[#244B52] bg-white/70 dark:bg-[#153136]/65 hover:border-[#D2B47A] hover:bg-white dark:hover:bg-[#193B40] hover:shadow-[0_10px_24px_-8px_rgba(24,62,67,0.16)] dark:hover:shadow-[0_10px_24px_-8px_rgba(210,180,122,0.22)]'
                 }`}
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-serif text-base font-semibold text-[#183E43]">
+                  <span className="font-serif text-base font-semibold text-[#183E43] dark:text-[#F8F7F3]">
                     {item.patientName}
                   </span>
                   <span className="text-xs font-semibold tabular-nums text-[#D2B47A]">
                     5.0 ★
                   </span>
                 </div>
-                <p className="mt-1 text-xs text-[#24565A]">{item.visitType}</p>
-                <p className="mt-2.5 line-clamp-2 text-xs leading-relaxed text-[#252A2B]/75">
+                <p className="mt-1 text-xs text-[#24565A] dark:text-[#D2B47A]">{item.visitType}</p>
+                <p className="mt-2.5 line-clamp-2 text-xs leading-relaxed text-[#252A2B]/75 dark:text-[#C4D4D6]">
                   {item.quote}
                 </p>
               </button>
